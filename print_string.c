@@ -6,17 +6,28 @@
 *
 * Return: returns nothing
 */
-void print_string(va_list args)
+int print_string(va_list args)
 {
 	char *s = va_arg(args, char *);
-	int i;
+	int i, len;
 
 	if (s == NULL)
 	{
 		s = "(null)";
+		len = strlen(s);
+		for (i = 0; i < len; i++)
+		{
+			_putchar(s[i]);
+		}
+		return (len);
 	}
-	for (i = 0; s[i] != '\0'; i++)
+	else
 	{
-		_putchar(s[i]);
+		len = strlen(s);
+		for (i = 0; i < len; i++)
+		{
+			_putchar(s[i]);
+		}
+		return (len);
 	}
 }

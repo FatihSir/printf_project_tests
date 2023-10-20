@@ -7,6 +7,7 @@
 #include <stdarg.h>
 #include <stdlib.h>
 #include <unistd.h>
+#include <stddef.h>
 
 /**
 * struct p_dtype - srtuct datatype
@@ -17,13 +18,14 @@
 typedef struct p_dtype
 {
 	char *specifer;
-	void (*ops)(va_list);
+	int (*ops)(va_list);
 } p_dtype;
 
-void printstr(char *str, int len);
 int _putchar(char c);
 int _printf(const char *format, ...);
-void print_char(va_list args);
-void print_string(va_list args);
-void print_int(va_list args);
+int print_char(va_list args);
+int print_string(va_list args);
+int percent(va_list args);
+int print_d(va_list args);
+int print_int(va_list args);
 #endif
